@@ -1,14 +1,16 @@
 import { isElementInViewport } from "../element/sizeHelpers";
 import { isImageElement } from "../element/typeChecks";
-import {
+import type {
   NonDeletedElementsMap,
   NonDeletedExcalidrawElement,
 } from "../element/types";
-import { cancelRender } from "../renderer/renderScene";
-import { AppState } from "../types";
+import { renderInteractiveSceneThrottled } from "../renderer/interactiveScene";
+import { renderStaticSceneThrottled } from "../renderer/staticScene";
+
+import type { AppState } from "../types";
 import { memoize, toBrandedType } from "../utils";
-import Scene from "./Scene";
-import { RenderableElementsMap } from "./types";
+import type Scene from "./Scene";
+import type { RenderableElementsMap } from "./types";
 
 export class Renderer {
   private scene: Scene;
@@ -105,9 +107,8 @@ export class Renderer {
         width,
         editingElement,
         pendingImageElementId,
-        // unused but serves we cache on it to invalidate elements if they
-        // get mutated
-        versionNonce: _versionNonce,
+        // cache-invalidation nonce
+        sceneNonce: _sceneNonce,
       }: {
         zoom: AppState["zoom"];
         offsetLeft: AppState["offsetLeft"];
@@ -118,7 +119,7 @@ export class Renderer {
         width: AppState["width"];
         editingElement: AppState["editingElement"];
         pendingImageElementId: AppState["pendingImageElementId"];
-        versionNonce: ReturnType<InstanceType<typeof Scene>["getVersionNonce"]>;
+        sceneNonce: ReturnType<InstanceType<typeof Scene>["getSceneNonce"]>;
       }) => {
         const elements = this.scene.getNonDeletedElements();
 
@@ -147,7 +148,8 @@ export class Renderer {
   // NOTE Doesn't destroy everything (scene, rc, etc.) because it may not be
   // safe to break TS contract here (for upstream cases)
   public destroy() {
-    cancelRender();
+    renderInteractiveSceneThrottled.cancel();
+    renderStaticSceneThrottled.cancel();
     this.getRenderableElements.clear();
   }
 }
