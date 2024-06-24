@@ -11,8 +11,8 @@
     "copyAsPng": "Копіювати як PNG",
     "copyAsSvg": "Копіювати як SVG",
     "copyText": "Копіювати в буфер обміну як текст",
-    "copySource": "",
-    "convertToCode": "",
+    "copySource": "Koпiювати джерело",
+    "convertToCode": "Конвертувати в код",
     "bringForward": "Перемістити вперед",
     "sendToBack": "На задній план",
     "bringToFront": "На передній план",
@@ -38,12 +38,12 @@
     "arrowhead_none": "Жоден",
     "arrowhead_arrow": "Стрілка",
     "arrowhead_bar": "Колона",
-    "arrowhead_circle": "",
-    "arrowhead_circle_outline": "",
+    "arrowhead_circle": "Коло",
+    "arrowhead_circle_outline": "Kонтур кола",
     "arrowhead_triangle": "Трикутник",
-    "arrowhead_triangle_outline": "",
-    "arrowhead_diamond": "",
-    "arrowhead_diamond_outline": "",
+    "arrowhead_triangle_outline": "Контур трикутника",
+    "arrowhead_diamond": "Ромб",
+    "arrowhead_diamond_outline": "Контур ромба",
     "fontSize": "Розмір шрифту",
     "fontFamily": "Шрифт",
     "addWatermark": "Додати «Накреслене в Excalidraw»",
@@ -137,8 +137,8 @@
     "selectAllElementsInFrame": "Обрати всі елементи у фреймі",
     "removeAllElementsFromFrame": "Видалити всі елементи з фрейму",
     "eyeDropper": "Вибрати колір з полотна",
-    "textToDiagram": "",
-    "prompt": ""
+    "textToDiagram": "Текст в діаграму",
+    "prompt": "Підказка"
   },
   "library": {
     "noItems": "Тут поки пусто...",
@@ -241,7 +241,7 @@
     "ellipse": "Еліпс",
     "arrow": "Стрілка",
     "line": "Лінія",
-    "freedraw": "Малювати",
+    "freedraw": "Малюнок",
     "text": "Текст",
     "library": "Бібліотека",
     "lock": "Залишити обраний інструмент після креслення",
@@ -251,7 +251,7 @@
     "frame": "Інструмент фрейму",
     "magicframe": "",
     "embeddable": "Веб вкладення",
-    "laser": "",
+    "laser": "Лазерна указка",
     "hand": "Рука (інструмент для панорамування)",
     "extraTools": "Інші інструменти",
     "mermaidToExcalidraw": "",
@@ -516,10 +516,10 @@
     }
   },
   "mermaid": {
-    "title": "",
-    "button": "",
-    "description": "",
-    "syntax": "",
-    "preview": ""
+    "title": "Заголовок",
+    "button": "Кнопка",
+    "description": "Опис",
+    "syntax": "Синтаксис",
+    "preview": "Перегляд"
   }
 }
